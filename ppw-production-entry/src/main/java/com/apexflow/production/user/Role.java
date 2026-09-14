@@ -1,4 +1,9 @@
 package com.apexflow.production.user;
 
-public class Role {
+public enum Role {
+
+    OPERATOR,
+    SUPERVISOR,
+    MANAGER
+
 }
