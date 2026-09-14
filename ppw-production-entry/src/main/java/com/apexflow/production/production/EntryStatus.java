@@ -1,4 +1,10 @@
 package com.apexflow.production.production;
 
-public class EntryStatus {
+public enum EntryStatus {
+
+    DRAFT,
+    SUBMITTED,
+    RETURNED,
+    APPROVED
+
 }
