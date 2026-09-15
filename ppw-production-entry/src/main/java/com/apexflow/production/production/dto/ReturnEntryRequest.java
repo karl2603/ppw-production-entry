@@ -1,4 +1,11 @@
 package com.apexflow.production.production.dto;
 
-public class ReturnEntryRequest {
+import jakarta.validation.constraints.NotBlank;
+
+public record ReturnEntryRequest(
+
+        @NotBlank(message = "Return remark is mandatory")
+        String remark
+
+) {
 }

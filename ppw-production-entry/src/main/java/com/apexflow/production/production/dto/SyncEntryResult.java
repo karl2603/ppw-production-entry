@@ -1,4 +1,14 @@
 package com.apexflow.production.production.dto;
 
-public class SyncEntryResult {
+public record SyncEntryResult(
+
+        String clientId,
+
+        String result,
+
+        Long serverEntryId,
+
+        String message
+
+) {
 }
