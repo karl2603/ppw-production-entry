@@ -1,4 +1,9 @@
 package com.apexflow.production.common;
 
-public class ConflictException {
+public class ConflictException
+        extends RuntimeException {
+
+    public ConflictException(String message) {
+        super(message);
+    }
 }
