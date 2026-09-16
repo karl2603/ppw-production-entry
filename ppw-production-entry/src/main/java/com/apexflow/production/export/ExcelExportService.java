@@ -6,7 +6,7 @@ import com.apexflow.production.production.Shift;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.stereotype.Service;
-
+import org.springframework.transaction.annotation.Transactional;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -22,7 +22,7 @@ public class ExcelExportService {
     ) {
         this.entryRepository = entryRepository;
     }
-
+    @Transactional(readOnly = true)
     public byte[] export(
             LocalDate date,
             Shift shift

@@ -75,16 +75,10 @@ public class ProductionEntryService {
         LocalDate entryDate =
                 request.parsedEntryDate();
 
-        ensureUniqueSlot(
-                entryDate,
-                request.shift(),
-                request.hourSlot(),
-                request.machine(),
-                null
-        );
-
         ProductionEntry entry =
                 new ProductionEntry();
+
+        entry.setClientId(request.clientId());
 
         applyRequest(entry, request, entryDate);
 
@@ -109,7 +103,7 @@ public class ProductionEntryService {
         } catch (DataIntegrityViolationException exception) {
 
             throw new ConflictException(
-                    "Another entry already exists for this machine, date, shift and hour slot"
+                    "Production entry conflicts with an existing database constraint"
             );
         }
     }
@@ -651,6 +645,15 @@ public class ProductionEntryService {
                                     currentId
                             );
         }
+
+        System.out.println(
+                "DUPLICATE CHECK: date=" + date +
+                        ", shift=" + shift +
+                        ", hourSlot=" + hourSlot +
+                        ", machine=" + machine +
+                        ", currentId=" + currentId +
+                        ", exists=" + exists
+        );
 
         if (exists) {
 

@@ -6,7 +6,9 @@ CREATE TABLE users (
                        name VARCHAR(150) NOT NULL,
 
                        PRIMARY KEY (id),
-                       CONSTRAINT uk_users_username UNIQUE (username)
+
+                       CONSTRAINT uk_users_username
+                           UNIQUE (username)
 );
 
 CREATE TABLE production_entries (
@@ -28,6 +30,7 @@ CREATE TABLE production_entries (
                                     rejected_quantity INT NOT NULL,
 
                                     rejection_reason VARCHAR(100),
+
                                     downtime_minutes INT NOT NULL,
                                     downtime_reason VARCHAR(500),
 
@@ -77,9 +80,11 @@ CREATE TABLE approval_history (
                                   production_entry_id BIGINT NOT NULL,
 
                                   from_status VARCHAR(30),
+
                                   to_status VARCHAR(30) NOT NULL,
 
                                   changed_by BIGINT NOT NULL,
+
                                   changed_at TIMESTAMP(6) NOT NULL,
 
                                   remark VARCHAR(1000),
