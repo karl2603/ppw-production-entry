@@ -1,98 +1,104 @@
-How to run locally
+# PPW Production Entry System
 
-Prerequisites
+A production entry management system built with Spring Boot, React, and MySQL.
 
-Git
+## How to Run Locally
 
-Java 21+
+### Prerequisites
 
-Node.js 18+
+Make sure the following are installed on your system:
 
-MySQL 8+
+* Git
+* Java 21+
+* Node.js 18+
+* MySQL 8+
 
-1. Clone
+---
 
+## 1. Clone the Repository
+
+```bash
 git clone https://github.com/karl2603/ppw-production-entry.git
 cd ppw-production-entry
+```
 
-2. Database
+---
+
+## 2. Database Setup
 
 Create the MySQL database:
 
+```sql
 CREATE DATABASE apexflow_production;
+```
 
-Update the local MySQL username and password in:
+Update your local MySQL username and password in:
 
-ppw-production-entry/src/main/resources/application.yml
+```text
+src/main/resources/application.yml
+```
 
-3. Run backend
+Example:
 
-Windows:
+```yaml
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/apexflow_production
+    username: your_username
+    password: your_password
+```
 
-cd ppw-production-entry
+---
+
+## 3. Run the Backend
+
+### Windows
+
+```bash
 .\mvnw.cmd spring-boot:run
+```
 
-macOS/Linux:
+### macOS / Linux
 
-cd ppw-production-entry
+```bash
 ./mvnw spring-boot:run
+```
 
-Backend:
+The backend will be available at:
 
+```text
 http://localhost:8080
+```
 
-4. Run frontend
+---
+
+## 4. Run the Frontend
 
 Open a second terminal:
 
+```bash
 cd frontend
 npm install
 npm run dev
+```
 
-Frontend:
+The frontend will be available at:
 
+```text
 http://localhost:5173
+```
 
-Seeded login credentials
+---
 
-Role
+## Seeded Login Credentials
 
-Username
+| Role       | Username      | Password         |
+| ---------- | ------------- | ---------------- |
+| Operator   | `operator1`   | `Operator@123`   |
+| Operator   | `operator2`   | `Operator@123`   |
+| Supervisor | `supervisor1` | `Supervisor@123` |
+| Supervisor | `supervisor2` | `Supervisor@123` |
+| Manager    | `manager1`    | `Manager@123`    |
+| Manager    | `manager2`    | `Manager@123`    |
 
-Password
-
-Operator
-
-operator1
-
-Operator@123
-
-Operator
-
-operator2
-
-Operator@123
-
-Supervisor
-
-supervisor1
-
-Supervisor@123
-
-Supervisor
-
-supervisor2
-
-Supervisor@123
-
-Manager
-
-manager1
-
-Manager@123
-
-Manager
-
-manager2
-
-Manager@123
+>
