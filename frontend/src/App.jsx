@@ -3,8 +3,6 @@ import "./App.css";
 
 /*
   ============================================================
-  APEXFLOW PRODUCTION CONTROL
-  Single-file React application
   Backend: Spring Boot @ http://localhost:8080
   ============================================================
 
